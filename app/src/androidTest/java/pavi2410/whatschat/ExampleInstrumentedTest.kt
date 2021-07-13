@@ -1,4 +1,4 @@
-package pavi2410.whatsappclone
+package pavi2410.whatschat
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

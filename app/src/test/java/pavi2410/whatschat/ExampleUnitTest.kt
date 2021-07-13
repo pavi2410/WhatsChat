@@ -1,4 +1,4 @@
-package pavi2410.whatsappclone
+package pavi2410.whatschat
 
 import org.junit.Test
 

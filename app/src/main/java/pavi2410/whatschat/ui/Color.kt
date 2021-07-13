@@ -1,4 +1,4 @@
-package pavi2410.whatsappclone.ui
+package pavi2410.whatschat.ui
 
 import androidx.compose.ui.graphics.Color
 

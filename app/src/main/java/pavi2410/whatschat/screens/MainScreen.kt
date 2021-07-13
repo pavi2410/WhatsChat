@@ -1,32 +1,27 @@
-package pavi2410.whatsappclone
+package pavi2410.whatschat.screens
 
-import androidx.compose.foundation.Icon
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.Text
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.ui.tooling.preview.Preview
-import pavi2410.whatsappclone.ui.WhatsAppCloneTheme
+import pavi2410.whatschat.R
+import pavi2410.whatschat.components.ChatItem
+import pavi2410.whatschat.ui.WhatsChatTheme
 
 @Preview
 @Composable
 fun MainScreenPreview() {
-    WhatsAppCloneTheme {
+    WhatsChatTheme {
         Surface(color = MaterialTheme.colors.background) {
             MainScreen()
         }
@@ -39,7 +34,7 @@ fun MainScreen() {
         topBar = {
             TopAppBar(
                 navigationIcon = {
-                    Image(vectorResource(R.drawable.whatsapp_logo), Modifier.padding(4.dp))
+                    Image(painterResource(R.drawable.whatsapp_logo), null, Modifier.padding(4.dp))
                 },
                 title = {
                     Text(
@@ -51,10 +46,10 @@ fun MainScreen() {
                 },
                 actions = {
                     IconButton(onClick = {}) {
-                        Icon(asset = Icons.Outlined.Search)
+                        Icon(Icons.Outlined.Search, null)
                     }
                     IconButton(onClick = {}) {
-                        Icon(asset = Icons.Outlined.Menu)
+                        Icon(Icons.Outlined.Menu, null)
                     }
                 },
                 elevation = 0.dp,
@@ -64,22 +59,22 @@ fun MainScreen() {
         bottomBar = {
             BottomNavigation {
                 BottomNavigationItem(icon = {
-                    Icon(Icons.Outlined.Home)
+                    Icon(Icons.Outlined.Home, null)
                 }, selected = true, onClick = {})
                 BottomNavigationItem(icon = {
-                    Icon(Icons.Outlined.Person)
+                    Icon(Icons.Outlined.Person, null)
                 }, selected = false, onClick = {})
                 BottomNavigationItem(icon = {
-                    Icon(Icons.Outlined.CheckCircle)
+                    Icon(Icons.Outlined.CheckCircle, null)
                 }, selected = false, onClick = {})
                 BottomNavigationItem(icon = {
-                    Icon(Icons.Outlined.Call)
+                    Icon(Icons.Outlined.Call, null)
                 }, selected = false, onClick = {})
             }
         },
         floatingActionButton = {
             FloatingActionButton(onClick = {}, contentColor = Color.White) {
-                Icon(Icons.Default.Favorite)
+                Icon(Icons.Default.Favorite, null)
             }
         }
     ) {
@@ -92,33 +87,3 @@ fun MainScreen() {
 }
 
 
-@Composable
-fun ChatItem() {
-    val padding = 16.dp
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.fillMaxWidth().height(72.dp).padding(padding)
-    ) {
-        Icon(
-            asset = Icons.Default.Face,
-            Modifier.size(56.dp)
-                .background(MaterialTheme.colors.primary, shape = CircleShape)
-        )
-        Spacer(Modifier.width(padding))
-        Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.SpaceBetween) {
-            Row(
-                horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier.fillMaxWidth().fillMaxHeight(0.5f)
-            ) {
-                Text("Foo Bar", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                Text("12:56 PM", color = MaterialTheme.colors.secondary)
-            }
-            Row(Modifier.fillMaxWidth().fillMaxHeight()) {
-                ProvideEmphasis(emphasis = EmphasisAmbient.current.medium) {
-                    Text("What are you doing?")
-                }
-            }
-        }
-    }
-    Divider(Modifier.padding(horizontal = padding))
-}
