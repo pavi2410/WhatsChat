@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.ui.platform.setContent
+import androidx.activity.compose.setContent
 import pavi2410.whatschat.screens.MainScreen
 import pavi2410.whatschat.ui.WhatsChatTheme
 
