@@ -1,7 +1,10 @@
 package pavi2410.whatschat.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -23,18 +26,18 @@ import pavi2410.whatschat.ui.WhatsChatTheme
 fun MainScreenPreview() {
     WhatsChatTheme {
         Surface(color = MaterialTheme.colors.background) {
-            MainScreen()
+            MainScreen(onChatOpen = {})
         }
     }
 }
 
 @Composable
-fun MainScreen() {
+fun MainScreen(onChatOpen: (Int) -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
                 navigationIcon = {
-                    Image(painterResource(R.drawable.whatsapp_logo), null, Modifier.padding(4.dp))
+                    Image(painterResource(R.drawable.whatsapp_logo), null, Modifier.padding(8.dp))
                 },
                 title = {
                     Text(
@@ -80,7 +83,7 @@ fun MainScreen() {
     ) {
         Column {
             repeat(6) {
-                ChatItem()
+                ChatItem(id = it, onChatOpen = onChatOpen)
             }
         }
     }

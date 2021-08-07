@@ -25,19 +25,21 @@ fun ChatScreenPreview() {
     WhatsChatTheme {
         Surface(color = MaterialTheme.colors.background) {
             Column {
-                ChatScreen()
+                ChatScreen(id = 1234, onNavUp = { true })
             }
         }
     }
 }
 
 @Composable
-fun ChatScreen() {
+fun ChatScreen(id: Int, onNavUp: () -> Boolean) {
     Scaffold(
         topBar = {
             TopAppBar(
                 navigationIcon = {
-                    Icon(Icons.Default.ArrowBack, null)
+                    IconButton(onClick = { onNavUp() }) {
+                        Icon(Icons.Default.ArrowBack, null)
+                    }
                 },
                 title = {
                     Image(
@@ -45,7 +47,7 @@ fun ChatScreen() {
                         Modifier.size(36.dp)
                     )
                     Spacer(Modifier.width(8.dp))
-                    Text("Foo Bar")
+                    Text("Foo Bar for id = $id")
                 }
             )
         },

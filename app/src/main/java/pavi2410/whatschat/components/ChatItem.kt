@@ -1,6 +1,7 @@
 package pavi2410.whatschat.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Divider
@@ -17,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ChatItem() {
+fun ChatItem(id: Int, onChatOpen: (Int) -> Unit) {
     val padding = 16.dp
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -25,6 +26,7 @@ fun ChatItem() {
             .fillMaxWidth()
             .height(72.dp)
             .padding(padding)
+            .clickable { onChatOpen(id) }
     ) {
         Icon(
             Icons.Default.Face, null,

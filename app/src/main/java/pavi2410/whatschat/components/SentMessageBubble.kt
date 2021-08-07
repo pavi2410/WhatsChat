@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import pavi2410.whatschat.MessageModel
+import pavi2410.whatschat.models.MessageModel
 
 @Composable
 fun SentMessageBubble(message: MessageModel) {
@@ -23,6 +23,7 @@ fun SentMessageBubble(message: MessageModel) {
         Box(
             Modifier
                 .padding(8.dp)
+                .widthIn(min = 64.dp)
                 .background(
                     Color.Blue,
                     shape = RoundedCornerShape(
